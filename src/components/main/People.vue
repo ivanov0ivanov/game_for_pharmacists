@@ -7,6 +7,15 @@
                         :key="person.id"
                         :person="person"/>
             </transition>
+
+            <transition :name="'seal-' + this.actionAnimation" mode="out-in">
+                <img v-if="this.actionAnimation === 'left'" :key="1" class="seal_container" src="../../assets/img/png/seal-left.png"
+                     alt="seal-left">
+                <img v-else-if="this.actionAnimation === 'top'" :key="2" class="seal_container" src="../../assets/img/png/seal-top.png"
+                     alt="seal-top">
+                <img v-else-if="this.actionAnimation === 'right'" :key="3" class="seal_container" src="../../assets/img/png/seal-right.png"
+                     alt="seal-right">
+            </transition>
         </div>
     </section>
 </template>
@@ -28,16 +37,71 @@
 
         mounted() {
             this.setCurrentPerson(0);
+            this.cleanSeal('');
         },
 
         methods: {
             ...mapActions({
                 setCurrentPerson: "currentPerson",
-
+                cleanSeal: "cleanSeal"
             })
         }
     }
 </script>
+<style lang="sass">
+    .seal_container
+        display: none
+        position: absolute
+        top: 25%
+</style>
+
+<style lang="sass">
+    //SEAL
+
+    .seal-left-enter-active
+        display: block
+        animation: seal-left 1s
+
+    @keyframes seal-left
+        0%
+            transform: scale(4)
+
+        50%
+            transform: scale(1)
+
+        100%
+            transform: translateX(-900px) rotateZ(-20deg)
+
+
+    .seal-top-enter-active
+        display: block
+        animation: seal-top 1s
+
+    @keyframes seal-top
+        0%
+            transform: scale(4)
+
+        50%
+            transform: scale(1)
+
+        100%
+            transform: translateY(-900px) rotateZ(-50deg)
+
+
+    .seal-right-enter-active
+        display: block
+        animation: seal-right 1s
+
+    @keyframes seal-right
+        0%
+            transform: scale(4)
+
+        50%
+            transform: scale(1)
+
+        100%
+            transform: translateX(900px) rotateZ(20deg)
+</style>
 
 <style lang="sass">
     //PEOPLE
@@ -51,6 +115,7 @@
     .left-leave-active,
     .right-leave-active
         transition: all .5s ease
+        transition-delay: .5s
 
     .top-enter,
     .top-leave-to

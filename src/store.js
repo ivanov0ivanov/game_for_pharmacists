@@ -111,7 +111,11 @@ export default new Vuex.Store({
 
         ACTION_ANIMATION(state, action) {
             state.actionAnimation = action;
-        }
+        },
+
+        CLEAN_SEAL(state, clean) {
+            state.actionAnimation = clean;
+        },
     },
 
     actions: {
@@ -133,6 +137,10 @@ export default new Vuex.Store({
 
         actionAnimation({commit}, action) {
             commit('ACTION_ANIMATION', action)
+        },
+
+        cleanSeal({commit}, clean) {
+            commit('CLEAN_SEAL', clean)
         }
     }
 });
