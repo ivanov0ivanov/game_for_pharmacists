@@ -60,7 +60,7 @@
 
     .seal-left-enter-active
         display: block
-        animation: seal-left 1s
+        animation: seal-left .8s
 
     @keyframes seal-left
         0%
@@ -75,7 +75,7 @@
 
     .seal-top-enter-active
         display: block
-        animation: seal-top 1s
+        animation: seal-top .8s
 
     @keyframes seal-top
         0%
@@ -90,7 +90,7 @@
 
     .seal-right-enter-active
         display: block
-        animation: seal-right 1s
+        animation: seal-right .8s
 
     @keyframes seal-right
         0%
@@ -115,7 +115,7 @@
     .left-leave-active,
     .right-leave-active
         transition: all .5s ease
-        transition-delay: .5s
+        transition-delay: .4s
 
     .top-enter,
     .top-leave-to
