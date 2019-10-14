@@ -23,20 +23,23 @@
         name: "DrugButtons",
         data() {
             return {
-                rest: null,
-                current: null
+                rest: 0,
+                current: 0
             }
         },
 
         created() {
             this.rest = this.people.length - 1;
-            this.setRestPeople(this.rest)
+            this.setRestPeople(this.rest);
+
+            this.current = this.getNextPerson;
         },
 
         computed: mapGetters({
             people: 'getPeople',
             drugs: 'getDrugs',
-            getRestPeople: 'getRestPeople'
+            getRestPeople: 'getRestPeople',
+            getNextPerson: 'getNextPerson'
         }),
 
         methods: {
@@ -44,15 +47,18 @@
                 setCurrentPerson: 'currentPerson',
                 soldCounter: 'drugsSold',
                 setRestPeople: 'restPeople',
-                setAnimation: 'actionAnimation'
+                setAnimation: 'actionAnimation',
+                nextPerson: 'nextPerson'
             }),
 
             setPeople() {
                 if (this.getRestPeople > 0) {
-                    this.rest = this.rest - 1;
+                    this.rest = this.getRestPeople - 1;
                     this.setRestPeople(this.rest);
 
-                    this.current = this.current + 1;
+                    this.current = this.getNextPerson + 1;
+                    this.nextPerson(this.current);
+
                     this.setCurrentPerson(this.current);
 
                 } else {

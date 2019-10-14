@@ -72,6 +72,7 @@ export default new Vuex.Store({
             }
         ],
         currentPerson: [],
+        nextPerson: 0,
         restPeople: 0,
         actionAnimation: ''
     },
@@ -80,6 +81,7 @@ export default new Vuex.Store({
         getPeople: state => state.people,
         getDrugs: state => state.drugs,
         getCurrentPerson: state => state.currentPerson,
+        getNextPerson: state => state.nextPerson,
         getRestPeople: state => state.restPeople,
         getActionAnimation: state => state.actionAnimation
     },
@@ -87,6 +89,10 @@ export default new Vuex.Store({
     mutations: {
         CURRENT_PERSON(state, current) {
             state.currentPerson.splice(0, 1, state.people[current]);
+        },
+
+        NEXT_PERSON(state, next) {
+          state.nextPerson = next;
         },
 
         DRUGS_SOLD(state, id) {
@@ -130,6 +136,10 @@ export default new Vuex.Store({
     actions: {
         currentPerson({commit}, current) {
             commit('CURRENT_PERSON', current)
+        },
+
+        nextPerson({commit}, current) {
+            commit('NEXT_PERSON', current)
         },
 
         drugsSold({commit}, id) {

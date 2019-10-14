@@ -64,11 +64,13 @@
                 setCurrentPerson: "currentPerson",
                 cleanSeal: "cleanSeal",
                 setRestPeople: 'restPeople',
+                nextPerson: 'nextPerson'
             }),
 
             restart(){
                 this.cleanSold(0);
                 this.setCurrentPerson(0);
+                this.nextPerson(0);
                 this.setRestPeople(this.people.length - 1);
                 this.cleanSeal('');
             }

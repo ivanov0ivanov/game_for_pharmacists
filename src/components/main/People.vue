@@ -37,13 +37,15 @@
 
         mounted() {
             this.setCurrentPerson(0);
+            this.nextPerson(0);
             this.cleanSeal('');
         },
 
         methods: {
             ...mapActions({
                 setCurrentPerson: "currentPerson",
-                cleanSeal: "cleanSeal"
+                cleanSeal: "cleanSeal",
+                nextPerson: 'nextPerson'
             })
         }
     }

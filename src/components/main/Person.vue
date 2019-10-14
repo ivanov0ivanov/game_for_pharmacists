@@ -35,14 +35,9 @@
         data() {
             return {
                 restP: null,
-                currentP: 0
+                current: 0
             }
         },
-
-        // created() {
-        //     this.rest = this.people.length - 1;
-        //     this.setRestPeople(this.rest)
-        // },
 
         computed: mapGetters({
             people: 'getPeople',
@@ -64,8 +59,8 @@
                     this.restP = this.getRestPeople - 1;
                     this.setRestPeople(this.restP);
 
-                    this.currentP += 1;
-                    this.setCurrentPerson(this.currentP);
+                    this.current = this.current + 1;
+                    this.setCurrentPerson(this.current);
 
                 } else {
                     this.$router.push({path: '/total'});
