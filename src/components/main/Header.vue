@@ -7,7 +7,7 @@
                         <router-link :to="{path: '/'}" class="btn-home">
                             <font-awesome-icon icon="home"></font-awesome-icon>
                         </router-link>
-                        <button type="button" class="btn-update">
+                        <button type="button" class="btn-update" @click="restart()">
                             <font-awesome-icon icon="sync"></font-awesome-icon>
                         </button>
                     </div>
@@ -60,8 +60,18 @@
 
         methods:{
             ...mapActions ({
-                cleanSold: "cleanSold"
-            })
+                cleanSold: "cleanSold",
+                setCurrentPerson: "currentPerson",
+                cleanSeal: "cleanSeal",
+                setRestPeople: 'restPeople',
+            }),
+
+            restart(){
+                this.cleanSold(0);
+                this.setCurrentPerson(0);
+                this.setRestPeople(this.people.length - 1);
+                this.cleanSeal('');
+            }
         }
     }
 </script>

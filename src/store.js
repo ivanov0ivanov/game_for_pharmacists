@@ -98,6 +98,15 @@ export default new Vuex.Store({
             })
         },
 
+        DRUGS_SWIPE_SOLD(state, action) {
+            state.drugs = state.drugs.map(item => {
+                if (item.action === action) {
+                    item.sold = item.sold + 1
+                }
+                return item
+            })
+        },
+
         CLEAN_SOLD(state, clean) {
             state.drugs = state.drugs.map(item => {
                 item.sold = Number(clean);
@@ -125,6 +134,10 @@ export default new Vuex.Store({
 
         drugsSold({commit}, id) {
             commit('DRUGS_SOLD', id)
+        },
+
+        drugsSwipeSold({commit}, action) {
+            commit('DRUGS_SWIPE_SOLD', action)
         },
 
         cleanSold({commit}, clean) {
