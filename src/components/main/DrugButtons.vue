@@ -7,6 +7,7 @@
                     class="btn-drug"
                     @click="() => {
                     setPeople();
+                    cleanSeal('');
                     soldCounter(drug.id);
                     setAnimation(drug.action);
                     }">
@@ -46,6 +47,7 @@
             ...mapActions({
                 setCurrentPerson: 'currentPerson',
                 soldCounter: 'drugsSold',
+                cleanSeal: "cleanSeal",
                 setRestPeople: 'restPeople',
                 setAnimation: 'actionAnimation',
                 nextPerson: 'nextPerson'

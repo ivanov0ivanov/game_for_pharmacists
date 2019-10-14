@@ -35,7 +35,7 @@
             })
         },
 
-        mounted() {
+        created() {
             this.setCurrentPerson(0);
             this.nextPerson(0);
             this.cleanSeal('');
