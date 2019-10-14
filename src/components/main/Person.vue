@@ -34,7 +34,7 @@
         },
         data() {
             return {
-                restP: null,
+                rest: 0,
                 current: 0
             }
         },
@@ -43,7 +43,8 @@
             people: 'getPeople',
             drugs: 'getDrugs',
             getRestPeople: 'getRestPeople',
-            getCurrentPerson: 'getCurrentPerson'
+            getCurrentPerson: 'getCurrentPerson',
+            getNextPerson: 'getNextPerson'
         }),
 
         methods: {
@@ -52,14 +53,17 @@
                 soldSwipeCounter: 'drugsSwipeSold',
                 setCurrentPerson: 'currentPerson',
                 setRestPeople: 'restPeople',
+                nextPerson: 'nextPerson'
             }),
 
             setPeople() {
                 if (this.getRestPeople > 0) {
-                    this.restP = this.getRestPeople - 1;
-                    this.setRestPeople(this.restP);
+                    this.rest = this.getRestPeople - 1;
+                    this.setRestPeople(this.rest);
 
-                    this.current = this.current + 1;
+                    this.current = this.getNextPerson + 1;
+                    this.nextPerson(this.current);
+
                     this.setCurrentPerson(this.current);
 
                 } else {
