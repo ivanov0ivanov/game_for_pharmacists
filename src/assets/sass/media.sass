@@ -102,3 +102,88 @@
       width: 428px
       height: 475px
 
+
+
+@media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3) and (orientation : landscape)
+  .action_header
+    width: 170px
+    overflow-y: auto
+    -webkit-overflow-scrolling: touch
+
+  .controls
+    margin: 0 10px
+    padding: 10px
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    a
+      &:first-child
+        margin-right: 0
+        margin-bottom: 10px
+
+
+  .config
+    h2
+      font-size: 20px
+
+
+  .wrap-line
+    div
+
+      &:nth-child(2n+1)
+        margin-right: 0 !important
+
+
+
+  .left-in-line_container
+    position: absolute
+    width: 170px
+
+    .left-in-line
+      padding: 10px
+      font-size: 20px
+      line-height: 30px
+
+      p
+        padding-bottom: 10px
+
+      p
+        &:last-child
+          font-size: 35px
+
+  .main_content
+    position: fixed
+    align-self: unset !important
+    -webkit-text-size-adjust: none
+
+    .content_blocks
+      display: flex
+      justify-content: flex-end
+
+    .cards
+      margin: 15px 0
+
+    .card
+      width: 360px
+      height: 350px
+
+
+  .card_body
+    padding: 8px 20px 5px
+
+  .card_title
+    font-size: 20px !important
+    line-height: 15px !important
+    padding-bottom: 5px !important
+
+  .card_description
+    font-size: 15px !important
+    line-height: 18px !important
+
+  .btn-drug_container
+    flex-direction: column
+    padding: 35px
+
+  .btn-drug
+    margin-bottom: 30px

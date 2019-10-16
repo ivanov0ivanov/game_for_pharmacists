@@ -1,6 +1,6 @@
 <template>
-    <main>
-        <div>
+    <main class="main_content">
+        <div class="content_blocks">
             <People/>
             <DrugButtons/>
         </div>
@@ -18,7 +18,7 @@
 </script>
 
 <style lang="sass" scoped>
-    main
+    .main_content
         width: 100%
         display: flex
         flex-direction: column

@@ -5,12 +5,7 @@
                     type="button"
                     :style="drug.background"
                     class="btn-drug"
-                    @click="() => {
-                    setPeople();
-                    cleanSeal('');
-                    soldCounter(drug.id);
-                    setAnimation(drug.action);
-                    }">
+                    @click="setPeople(drug.id, drug.action)">
                 {{drug.name}}
             </button>
         </div>
@@ -53,7 +48,11 @@
                 nextPerson: 'nextPerson'
             }),
 
-            setPeople() {
+            setPeople(id, action) {
+                this.cleanSeal('');
+                this.soldCounter(id);
+                this.setAnimation(action);
+
                 if (this.getRestPeople > 0) {
                     this.rest = this.getRestPeople - 1;
                     this.setRestPeople(this.rest);
